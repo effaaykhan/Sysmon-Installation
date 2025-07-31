@@ -25,5 +25,14 @@ This Repository contains the installation guide of Sysmon on windows
    sysmon.exe -c sysmonconfig-export.xml
    ```
 
+9. Add the following configuration in the agent's ossec.conf
+    ```
+   <localfile>
+      <location>Microsoft-Windows-Sysmon/Operational</location>
+      <log_format>eventchannel</log_format>
+   </localfile>
+   ```
+ 10. Restart the Agent
+     
 ## NOTE: Run every Command with admin rights.
 

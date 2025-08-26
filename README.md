@@ -12,27 +12,35 @@ This Repository contains the installation guide of Sysmon on windows
    ```
    cd C:\Sysmon
    ```
-6. Download the config file
+6. Download the config file and move it to the sysmon directory
    ```
-   Invoke-WebRequest -Uri "https://raw.githubusercontent.com/SwiftOnSecurity/sysmon-config/refs/heads/master/sysmonconfig-export.xml" -OutFile "sysmonconfig-export.xml"
+   Invoke-WebRequest -Uri https://raw.githubusercontent.com/SwiftOnSecurity/sysmon-config/refs/heads/master/sysmonconfig-export.xml -OutFile "sysmonconfig-export.xml"
    ```
-7. Install Sysmon
+7. Install Sysmon: Run the following command in the directory where sysmon is installed
    ```
-   sysmon.exe -accepteula -i sysmonconfig-export.xml
+   .\Sysmon.exe -i .\sysmonconfig-export.xml
    ```
 8. Update Configuration
    ```
-   sysmon.exe -c sysmonconfig-export.xml
+   .\Sysmon.exe -c .\sysmonconfig-export.xml
    ```
 
-9. Add the following configuration in the agent's ossec.conf
+9. Install Event Manifest
     ```
-   <localfile>
+    sysmon64 -m
+    ```
+10. Print Schema
+    ```
+    .\Sysmon.exe -s
+    ```
+11. Add the following configuration to the agent's ossec.conf:
+    ```
+    <localfile>
       <location>Microsoft-Windows-Sysmon/Operational</location>
       <log_format>eventchannel</log_format>
-   </localfile>
-   ```
- 10. Restart the Agent
+    </localfile>
+    ```
+ 12. Restart the Agent
      
 ## NOTE: Run every Command with admin rights.
 

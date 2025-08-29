@@ -14,7 +14,7 @@ This Repository contains the installation guide of Sysmon on windows
    ```
 6. Download the config file and move it to the sysmon directory
    ```
-   Invoke-WebRequest -Uri https://raw.githubusercontent.com/SwiftOnSecurity/sysmon-config/refs/heads/master/sysmonconfig-export.xml -OutFile "sysmonconfig-export.xml"
+   https://raw.githubusercontent.com/effaaykhan/Sysmon-Installation/refs/heads/main/sysmonconfig-export.xml -OutFile "sysmonconfig-export.xml"
    ```
 7. Install Sysmon: Run the following command in the directory where sysmon is installed
    ```
